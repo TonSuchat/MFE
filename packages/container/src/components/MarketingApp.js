@@ -5,6 +5,7 @@ const MarketingApp = () => {
   const ref = useRef(null);
 
   useEffect(() => {
+    console.log("..");
     mount(ref.current);
   }, []);
 

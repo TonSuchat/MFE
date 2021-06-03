@@ -20,7 +20,7 @@ jobs:
       - name: Setup node
       - env:
           MARKETING_PRODUCTION_DOMAIN: ${{ secrets.SURGE_MARKETING_DOMAIN }}
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: "14"
       - run: npm install -g surge

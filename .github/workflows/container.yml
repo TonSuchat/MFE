@@ -19,16 +19,16 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Setup node
-      - uses: actions/setup-node@v2-beta
+        uses: actions/setup-node@v2-beta
         with:
           node-version: 12
 
       - name: Build Container Application
-      - run: npm install
-      - run: npm run build
+        run: npm install
+        run: npm run build
 
       - name: Install Surge
-      - run: npm install -g surge
+        run: npm install -g surge
 
       - name: Deploy to Surge
-      - run: surge ./dist ${{ secrets.SURGE_CONTAINER_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+        run: surge ./dist ${{ secrets.SURGE_CONTAINER_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}

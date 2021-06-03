@@ -15,7 +15,7 @@ const prodConfig = {
     new ModuleFederationPlugin({
       name: "container",
       remotes: {
-        marketing: `marketing@https://ton-mfe-marketing.surge.sh/remoteEntry.js`,
+        marketing: `marketing@${domain}remoteEntry.js`,
       },
       shared: packageJson.dependencies,
     }),

@@ -18,12 +18,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Setup node
-        env:
-          MARKETING_PRODUCTION_DOMAIN: ${{ secrets.SURGE_MARKETING_DOMAIN }}
         uses: actions/setup-node@v2
         with:
           node-version: "14"
       - run: npm install -g surge
       - run: npm install
       - run: npm run build
+        env:
+          MARKETING_PRODUCTION_DOMAIN: ${{ secrets.SURGE_MARKETING_DOMAIN }}
       - run: surge ./dist ${{ secrets.SURGE_CONTAINER_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}

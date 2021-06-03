@@ -4,6 +4,7 @@ import ReactDom from "react-dom";
 import App from "./App";
 
 export const mount = (el) => {
+  console.log("hi there");
   ReactDom.render(<App />, el);
 };
 

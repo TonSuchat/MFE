@@ -17,16 +17,18 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
-      - name: Setup node
-        uses: actions/setup-node@v2-beta
-        with:
-          node-version: 12
       - run: npm install
       - run: npm run build
 
-      - name: Install Surge
-        run: npm install -g surge
+      # - name: Setup node
+      #   uses: actions/setup-node@v2-beta
+      #   with:
+      #     node-version: 12
+      # - run: npm install
+      # - run: npm run build
 
-      - name: Deploy to Surge
-        run: surge ./dist ${{ secrets.SURGE_CONTAINER_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
+      # - name: Install Surge
+      #   run: npm install -g surge
+
+      # - name: Deploy to Surge
+      #   run: surge ./dist ${{ secrets.SURGE_CONTAINER_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}

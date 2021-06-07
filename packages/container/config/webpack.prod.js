@@ -3,7 +3,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const commonConfig = require("./webpack.common");
 const packageJson = require("../package.json");
 
-const marketingDomain = process.env.AUTH_PRODUCTION_DOMAIN;
+const marketingDomain = process.env.MARKETING_PRODUCTION_DOMAIN;
 const authDomain = process.env.AUTH_PRODUCTION_DOMAIN;
 
 const prodConfig = {

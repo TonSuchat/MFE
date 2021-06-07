@@ -26,4 +26,5 @@ jobs:
       - run: npm run build
         env:
           MARKETING_PRODUCTION_DOMAIN: ${{ secrets.SURGE_MARKETING_DOMAIN }}
+          AUTH_PRODUCTION_DOMAIN: ${{ secrets.SURGE_AUTH_DOMAIN }}
       - run: surge ./dist ${{ secrets.SURGE_CONTAINER_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}

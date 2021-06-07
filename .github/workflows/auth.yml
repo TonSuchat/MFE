@@ -1,0 +1,27 @@
+name: deploy-auth
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "packages/auth/**"
+
+defaults:
+  run:
+    working-directory: packages/auth
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "14"
+      - run: npm install -g surge
+      - run: npm install
+      - run: npm run build
+      - run: surge ./dist ${{ secrets.SURGE_AUTH_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}

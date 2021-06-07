@@ -3,9 +3,6 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
 const commonConfig = require("./webpack.common");
 const packageJson = require("../package.json");
 
-const marketingDomain = process.env.AUTH_PRODUCTION_DOMAIN;
-const authDomain = process.env.AUTH_PRODUCTION_DOMAIN;
-
 const prodConfig = {
   mode: "production",
   output: {
@@ -13,10 +10,10 @@ const prodConfig = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "container",
-      remotes: {
-        marketing: `marketing@${marketingDomain}remoteEntry.js`,
-        auth: `auth@${authDomain}remoteEntry.js`,
+      name: "auth",
+      filename: "remoteEntry.js",
+      exposes: {
+        "./AuthApp": "./src/bootstrap",
       },
       shared: packageJson.dependencies,
     }),
